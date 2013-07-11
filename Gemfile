@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.0.0'
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'sqlite3'
+  gem 'factory_girl'
+  gem 'capybara'
+  gem 'faker'
 end
 
 group :production do
