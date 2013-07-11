@@ -1,6 +1,6 @@
 SeatYourself::Application.routes.draw do
  
-  get "restaurants/index"
+  
   root 'restaurants#index'
-
+  resources :restaurants
 end
