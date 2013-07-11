@@ -5,7 +5,7 @@ FactoryGirl.define do
 		neighbourhood Faker::Address.city
 		price_min 1
 		price_max 5
-		summary Faker::Lorem.paragraph.join(' ') 
+		summary Faker::Lorem.paragraph
 		menu Faker::Lorem.sentences.join(' ')
 	end	
 end
