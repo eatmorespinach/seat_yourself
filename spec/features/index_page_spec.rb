@@ -7,6 +7,6 @@ feature "Restaurant Listings" do
 		end
 		visit root_path
 		expect(page.has_selector?('table')).to be_true
-		expect(page.all('table>tr')).to have(3)
+		expect(page.all('tr')).to have(3)
 	end
 end
