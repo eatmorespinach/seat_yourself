@@ -13,8 +13,9 @@ feature "Visitor" do
 
 	scenario "Click on Restaurant" do
 		restaurant = FactoryGirl.create(:restaurant)
+		
 		click_link(restaurant.name)
-
+		binding.pry
 		expect(page.should render_template restaurant_path)
 		expect(page.has_selector?('table')).to be_true
 
