@@ -5,7 +5,7 @@
 	<% @restaurants.each do |x| %>
 		<tr>
 			<td>
-				<%= link_to x.name, "/restaurants/show/#{x.id}" %>
+				<%= link_to x.name, "/restaurants/#{x.id}" %>
 
 			</td>
 		</tr>
