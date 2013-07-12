@@ -4,4 +4,7 @@ class User < ActiveRecord::Base
   # attr_accessible :password, :password_confirmation
 
   validates_confirmation_of :password
+
+  has_many :booking
+  has_many :restaurant, through: :booking
 end

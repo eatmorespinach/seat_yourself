@@ -44,13 +44,14 @@ feature "Visitor" do
 
 	context "with an authenticated user" do
 		before(:each) do 
+			@restaurant = FactoryGirl.create(:restaurant)
+		
+
 			visit root_path
 			@user_attributes = FactoryGirl.attributes_for(:user)
 			@user = User.create(@user_attributes)
-			@restaurant = []
-			(1..3).each do |x|
-				@restaurant = FactoryGirl.create(:restaurant)
-			end
+			
+
 		end
 
 		scenario "User logs in" do
@@ -66,7 +67,8 @@ feature "Visitor" do
 		end
 
 		scenario "User can make a reservation online" do
-			click_link(@restaurant.first.name)
+			click_link(@restaurant.name)
+			click_button('Create Reservation')
 		end
 
 	end
