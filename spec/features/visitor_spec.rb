@@ -17,12 +17,14 @@ feature "Visitor" do
 		visit root_path
 		click_link(restaurant.name)
 
-		
 		expect(page.has_selector?('table')).to be_true
-		expect(page.has_content(restaurant.name))
-		expect(page.has_content(restaurant.address))
-		expect(page.has_content(restaurant.city))
-
+		expect(page.has_content?(restaurant.name))
+		expect(page.has_content?(restaurant.address))
+		expect(page.has_content?(restaurant.neighbourhood))
+		expect(page.has_content?(restaurant.price_min))
+		expect(page.has_content?(restaurant.price_min))
+		expect(page.has_content?(restaurant.summary))
+		expect(page.has_content?(restaurant.menu))
 	end 
 
 
