@@ -7,7 +7,6 @@ feature "Visitor" do
 		end
 		visit root_path
 		expect(page.has_selector?('table')).to be_true
-		# binding.pry
 		expect(page.all('tr')).to have(6).items
 	end
 
@@ -37,7 +36,6 @@ feature "Visitor" do
 		fill_in('Email', :with => user.email)
 		fill_in('Password', :with => user.password)
 		fill_in('Password confirmation', :with => user.password)
-		# binding.pry
 		click_button('Create User')
 
 		expect(page).to have_text("Signed Up!")
@@ -49,10 +47,14 @@ feature "Visitor" do
 			visit root_path
 			@user_attributes = FactoryGirl.attributes_for(:user)
 			@user = User.create(@user_attributes)
+			@restaurant = []
+			(1..3).each do |x|
+				@restaurant = FactoryGirl.create(:restaurant)
+			end
 		end
 
-		scenario "Customer logs in" do
-			
+		scenario "User logs in" do
+
 			click_link("Log in")
 			expect(page.has_selector?('form')).to be_true
 
@@ -60,10 +62,13 @@ feature "Visitor" do
 			fill_in('Password', :with => @user_attributes[:password])
 
 			click_button('Log in')
-
 			expect(page).to have_text("Logged in!")
-
 		end
+
+		scenario "User can make a reservation online" do
+			click_link(@restaurant.first.name)
+		end
+
 	end
 
 end
