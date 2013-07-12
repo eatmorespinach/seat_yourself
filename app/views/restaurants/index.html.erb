@@ -5,8 +5,9 @@
 	<% @restaurants.each do |x| %>
 		<tr>
 			<td>
-				<%= link_to x.name, "restaurants/#{x.id}" %>
-
+				<!-- <a href= <%=%>> <%=x.name%></a> -->
+				
+				<%= link_to x.name, "/restaurants/#{x.id}" %>
 			</td>
 		</tr>
 	<%end%>
