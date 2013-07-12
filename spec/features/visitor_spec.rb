@@ -8,7 +8,7 @@ feature "Visitor" do
 		visit root_path
 		expect(page.has_selector?('table')).to be_true
 		# binding.pry
-		expect(page.all('tr')).to have(3).items
+		expect(page.all('tr')).to have(6).items
 	end
 
 	scenario "Click on Restaurant" do
@@ -42,4 +42,36 @@ feature "Visitor" do
 
 		expect(page).to have_text("Signed Up!")
 	end
+
+	before (:each) do 
+		user = FactoryGirl.build(:user)
+		visit root_path
+		click_link("Sign Up")
+		
+		fill_in('Email', :with => user.email)
+		fill_in('Password', :with => user.password)
+		fill_in('Password confirmation', :with => user.password)
+		# binding.pry
+		click_button('Create User')
+	end
+
+	scenario "Customer logs in" do
+		
+
+		click_link("Log in")
+
+		expect(page.has_selector?('form')).to be_true
+
+		fill_in('Email', :with => user.email)
+		fill_in('Password', :with => user.password)
+
+		click_button('Log in')
+
+		expect(page).to have_text("Logged in!")
+
+	end
+
+
+
+
 end
