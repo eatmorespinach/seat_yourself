@@ -27,6 +27,10 @@ feature "Visitor" do
 		expect(page.has_content?(restaurant.menu))
 	end 
 
+	scenario "Sign Up for Customer Account" do
+		visit root_path
+		click_link("Sign Up")
+	end
 
 
 end
