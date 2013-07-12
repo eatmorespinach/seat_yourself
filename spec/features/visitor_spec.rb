@@ -51,7 +51,6 @@ feature "Visitor" do
 			@user_attributes = FactoryGirl.attributes_for(:user)
 			@user = User.create(@user_attributes)
 			
-
 		end
 
 		scenario "User logs in" do
@@ -66,9 +65,10 @@ feature "Visitor" do
 			expect(page).to have_text("Logged in!")
 		end
 
-		scenario "User can make a reservation online" do
+		scenario "User can make a booking online" do
 			click_link(@restaurant.name)
-			click_button('Create Reservation')
+			binding.pry
+			click_link('Create Booking')
 		end
 
 	end
