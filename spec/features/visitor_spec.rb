@@ -34,10 +34,10 @@ feature "Visitor" do
 
 		expect(page.has_selector?('form')).to be_true
 		
-		fill_in('email', :with => user.email)
-		fill_in('password', :with => user.password)
-		fill_in('password_confirmation', :with => user.password_confirmation)
-		click('Submit')
+		fill_in('Email', :with => user.email)
+		fill_in('Password', :with => user.password)
+		fill_in('Password confirmation', :with => user.password)
+		click('Create User')
 
 		expect(page).to have_text("Signed Up!")
 	end
