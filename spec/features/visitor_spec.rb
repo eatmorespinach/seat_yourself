@@ -43,35 +43,27 @@ feature "Visitor" do
 		expect(page).to have_text("Signed Up!")
 	end
 
-	before (:each) do 
-		user = FactoryGirl.build(:user)
-		visit root_path
-		click_link("Sign Up")
-		
-		fill_in('Email', :with => user.email)
-		fill_in('Password', :with => user.password)
-		fill_in('Password confirmation', :with => user.password)
-		# binding.pry
-		click_button('Create User')
+
+	context "with an authenticated user" do
+		before(:each) do 
+			visit root_path
+			@user_attributes = FactoryGirl.attributes_for(:user)
+			@user = User.create(@user_attributes)
+		end
+
+		scenario "Customer logs in" do
+			
+			click_link("Log in")
+			expect(page.has_selector?('form')).to be_true
+
+			fill_in('Email', :with => @user_attributes[:email])
+			fill_in('Password', :with => @user_attributes[:password])
+
+			click_button('Log in')
+
+			expect(page).to have_text("Logged in!")
+
+		end
 	end
-
-	scenario "Customer logs in" do
-		
-
-		click_link("Log in")
-
-		expect(page.has_selector?('form')).to be_true
-
-		fill_in('Email', :with => user.email)
-		fill_in('Password', :with => user.password)
-
-		click_button('Log in')
-
-		expect(page).to have_text("Logged in!")
-
-	end
-
-
-
 
 end
