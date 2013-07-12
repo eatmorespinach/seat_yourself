@@ -12,12 +12,16 @@ feature "Visitor" do
 	end
 
 	scenario "Click on Restaurant" do
+
 		restaurant = FactoryGirl.create(:restaurant)
+		visit root_path
 		click_link(restaurant.name)
 
-		expect(page.should render_template restaurant_path)
+		
 		expect(page.has_selector?('table')).to be_true
-
+		expect(page.has_content(restaurant.name))
+		expect(page.has_content(restaurant.address))
+		expect(page.has_content(restaurant.city))
 
 	end 
 
