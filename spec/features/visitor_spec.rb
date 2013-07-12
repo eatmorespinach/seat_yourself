@@ -28,10 +28,17 @@ feature "Visitor" do
 	end 
 
 	scenario "Sign Up for Customer Account" do
-		user = FactoryGirl.create(:user)
+		user = FactoryGirl.build(:user)
 		visit root_path
 		click_link("Sign Up")
 
 		expect(page.has_selector?('form')).to be_true
+		
+		fill_in('email', :with => user.email)
+		fill_in('password', :with => user.password)
+		fill_in('password_confirmation', :with => user.password_confirmation)
+		click('Submit')
+
+		expect(page).to have_text("Signed Up!")
 	end
 end
