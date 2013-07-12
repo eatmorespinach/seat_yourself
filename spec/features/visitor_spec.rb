@@ -34,6 +34,4 @@ feature "Visitor" do
 
 		expect(page.has_selector?('form')).to be_true
 	end
-
-
 end
