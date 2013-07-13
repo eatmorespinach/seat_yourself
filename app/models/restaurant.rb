@@ -1,4 +1,4 @@
 class Restaurant < ActiveRecord::Base
-	has_many :booking 
-	has_many :user, through: :booking
+	has_many :bookings
+	has_many :users, through: :bookings
 end

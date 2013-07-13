@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password
 
-  has_many :booking
-  has_many :restaurant, through: :booking
+  has_many :bookings
+  has_many :restaurants, through: :bookings
 end
