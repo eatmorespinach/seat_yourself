@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   	@booking = @restaurant.bookings.build(booking_params)
 
     if @booking.save
-      redirect_to restuarant_path, notice: 'BOOKED!!'
+      redirect_to restaurant_path(@restaurant.id), notice: 'Booked!'
     else
       render :new
     end
