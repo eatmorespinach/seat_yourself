@@ -72,9 +72,9 @@ feature "Visitor" do
 		end
 
 		scenario "User can fill out booking form and submit" do
-
+			binding.pry
 			expect(page.has_selector?('form')).to be_true
-		
+			
 			fill_in('Date', :with => DateTime.new(2013,7,23,4,5,6))
 			fill_in('Party', :with => 20)
 			click_button('Create User')
