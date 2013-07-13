@@ -6,11 +6,11 @@
 	binding.pry
 	<div class="field">
 		<%= f.label :party %>
-		<%= f.integer :party %>
+		<%= f.number_field :party %>
 	</div>
 	<div class="field">
 		<%= f.label :datetime %>
-		<%= f.datetime_select :start_datetime, :ampm => true, :minute_step => 15 %>
+		<%= f.datetime_field :date %>
 	</div>
 	<div class="actions"><%=f.submit%></div>
 <%end%>

@@ -7,7 +7,7 @@ feature "Visitor" do
 		end
 		visit root_path
 		expect(page.has_selector?('table')).to be_true
-		expect(page.all('tr')).to have(6).items
+		expect(page.all('tr')).to have(3).items
 	end
 
 	scenario "Click on Restaurant" do
@@ -72,7 +72,7 @@ feature "Visitor" do
 		end
 
 		scenario "User can fill out booking form and submit" do
-			binding.pry
+			# binding.pry
 			expect(page.has_selector?('form')).to be_true
 			
 			fill_in('Date', :with => DateTime.new(2013,7,23,4,5,6))
