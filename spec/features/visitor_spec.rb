@@ -73,6 +73,9 @@ feature "Visitor" do
 
 		scenario "User can fill out booking form and submit" do
 			# binding.pry
+			click_link(@restaurant.name)
+			click_link('Create Booking')
+			expect(page).to have_text("Bookings")
 			expect(page.has_selector?('form')).to be_true
 			
 			fill_in('Date', :with => DateTime.new(2013,7,23,4,5,6))
