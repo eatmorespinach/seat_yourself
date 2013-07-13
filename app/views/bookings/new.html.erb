@@ -2,8 +2,8 @@
 <p>Find me in app/views/bookings/new.html.erb</p>
 
 
-<%= form_for [@restaurant, @booking] do |f| %>
-	<!-- binding.pry -->
+<%= form_for ([@restaurant, @booking]) do |f| %>
+	
 	<div class="field">
 		<%= f.label :party %>
 		<%= f.number_field :party %>

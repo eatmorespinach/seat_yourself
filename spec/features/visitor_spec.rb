@@ -80,7 +80,7 @@ feature "Visitor" do
 			
 			fill_in('Date', :with => DateTime.new(2013,7,23,4,5,6))
 			fill_in('Party', :with => 20)
-						# binding.pry
+						binding.pry
 			click_button('Create Booking')
 			expect(page).to have_text("Booked!")
 		end

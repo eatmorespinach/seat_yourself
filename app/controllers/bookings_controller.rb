@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
 
   def create
   	@booking = @restaurant.bookings.build(booking_params)
-  
   end
 
   private
