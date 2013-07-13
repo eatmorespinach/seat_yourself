@@ -7,7 +7,7 @@ feature "Visitor" do
 		end
 		visit root_path
 		expect(page.has_selector?('table')).to be_true
-		expect(page.all('tr')).to have(3).items
+		expect(page.all('tr')).to have(6).items
 	end
 
 	scenario "Click on Restaurant" do
