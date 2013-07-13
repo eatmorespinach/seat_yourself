@@ -46,7 +46,6 @@ feature "Visitor" do
 		before(:each) do 
 			@restaurant = FactoryGirl.create(:restaurant)
 		
-
 			visit root_path
 			@user_attributes = FactoryGirl.attributes_for(:user)
 			@user = User.create(@user_attributes)
