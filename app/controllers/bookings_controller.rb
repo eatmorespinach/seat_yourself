@@ -7,6 +7,12 @@ class BookingsController < ApplicationController
 
   def create
   	@booking = @restaurant.bookings.build(booking_params)
+
+    if @review.save
+      redirect_to restuarant_path, notice: 'BOOKED!!'
+    else
+      render :new
+    end
   end
 
   private
