@@ -84,6 +84,11 @@ feature "Visitor" do
 			expect(page).to have_text("Booked!")
 		end
 
+		scenario "User can click to see their account profile" do
+
+
+		end
+
 	end
 
 end
