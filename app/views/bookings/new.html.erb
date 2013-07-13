@@ -1,0 +1,16 @@
+<h1>Bookings#new</h1>
+<p>Find me in app/views/bookings/new.html.erb</p>
+
+
+<%= form_for [@restaurant, @booking] do |f| %>
+	binding.pry
+	<div class="field">
+		<%= f.label :party %>
+		<%= f.integer :party %>
+	</div>
+	<div class="field">
+		<%= f.label :datetime %>
+		<%= f.datetime_select :start_datetime, :ampm => true, :minute_step => 15 %>
+	</div>
+	<div class="actions"><%=f.submit%></div>
+<%end%>
