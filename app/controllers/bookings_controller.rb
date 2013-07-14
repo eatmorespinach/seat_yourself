@@ -24,4 +24,8 @@ class BookingsController < ApplicationController
   def load_restaurant
   	@restaurant = Restaurant.find(params[:restaurant_id])
   end
+
+  def show
+    
+  end
 end
