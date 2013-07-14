@@ -84,10 +84,10 @@ feature "Visitor" do
 			expect(page).to have_text("Booked!")
 		end
 
-		scenario "user receives points when booking is made" do
-			#we check for a num that matches the booking #. We check for the #4 once and a number
-			#greater than it. 
-			expect(page).to have_text("points")
+	context
+
+		scenario "user can visit their profile page" do
+			click_link('Profile')
 		end
 
 	end
