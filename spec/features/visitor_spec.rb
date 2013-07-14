@@ -7,7 +7,7 @@ feature "Visitor" do
 		end
 		visit root_path
 		expect(page.has_selector?('table')).to be_true
-		expect(page.all('tr')).to have(6).items
+		expect(page.all('tr')).to have(3).items
 	end
 
 	scenario "Click on Restaurant" do
@@ -84,12 +84,8 @@ feature "Visitor" do
 			expect(page).to have_text("Booked!")
 		end
 
-	context
-
 		scenario "user can visit their profile page" do
 			click_link('Profile')
 		end
-
 	end
-
 end
