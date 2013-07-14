@@ -83,7 +83,7 @@ feature "Visitor" do
 			click_button('Create Booking')
 			expect(page).to have_text("Booked!")
 		end
-
+		
 		scenario "user can visit their profile page" do
 			click_link('Profile')
 		end
