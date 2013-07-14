@@ -89,7 +89,7 @@ feature "Visitor" do
 			fill_in('Email', :with => @user_attributes[:email])
 			fill_in('Password', :with => @user_attributes[:password])
 			click_button('Log in')
-binding.pry
+# binding.pry
 			click_link('Profile')
 		end
 	end
