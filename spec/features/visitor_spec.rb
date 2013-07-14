@@ -83,8 +83,13 @@ feature "Visitor" do
 			click_button('Create Booking')
 			expect(page).to have_text("Booked!")
 		end
-		
+
 		scenario "user can visit their profile page" do
+			click_link("Log in")
+			fill_in('Email', :with => @user_attributes[:email])
+			fill_in('Password', :with => @user_attributes[:password])
+			click_button('Log in')
+binding.pry
 			click_link('Profile')
 		end
 	end
