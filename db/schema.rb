@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130715005328) do
+ActiveRecord::Schema.define(version: 20130715195817) do
 
   create_table "bookings", force: true do |t|
     t.datetime "date"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20130715005328) do
     t.string   "activation_state"
     t.string   "activation_token"
     t.datetime "activation_token_expires_at"
+    t.integer  "restaurant_id"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token"
