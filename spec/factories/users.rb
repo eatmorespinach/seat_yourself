@@ -2,8 +2,10 @@
 
 FactoryGirl.define do
   factory :user do
+  	name Faker::Name.name
   	email Faker::Internet.email
   	password 'password'
+  	points 10
   	# salt{ 'asdasdastr4325234324sdfds' }
   	# crypted_password{
   	#  Sorcery::CryptoProviders::BCrypt.encrypt(
