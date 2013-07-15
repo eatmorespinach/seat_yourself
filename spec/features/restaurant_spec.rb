@@ -11,6 +11,10 @@ describe 'Restuarant Owner' do
 		fill_in('Email', :with => @user_attributes[:email])
 		fill_in('Password', :with => @user_attributes[:password])
 		click_button('Log in')
+		click_link(@restaurant.name)
+		click_link('Create Booking')
+		fill_in('Date', :with => DateTime.new(2013,7,23,4,5,6))
+		fill_in('Party', :with => 20)
 	end
 
 	context 'click on restaurant profile' do
