@@ -66,7 +66,6 @@ feature "Visitor" do
 
 		scenario "User can make a booking online" do
 			click_link(@restaurant.name)
-
 			click_link('Create Booking')
 		end
 
@@ -94,6 +93,15 @@ feature "Visitor" do
 			expect(page).to have_text(@user.name)
 			expect(page).to have_text(@user.email)
 			expect(page).to have_text(@user.points)
+		end
+
+		scenario "user makes booking and visits profile page and sees extra point" do
+			click_link("Log in")
+			fill_in('Email', :with => @user_attributes[:email])
+			fill_in('Password', :with => @user_attributes[:password])
+			click_button('Log in')
+
+
 		end
 	end
 end
