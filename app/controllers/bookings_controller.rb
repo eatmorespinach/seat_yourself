@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
 
   	@booking = @restaurant.bookings.build(booking_params)
     @booking.user = @user
-   binding.pry
+
     if @booking.save
       @user.points += 1
       @user.save

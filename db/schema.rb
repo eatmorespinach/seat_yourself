@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20130715005328) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.integer  "points"
+    t.integer  "points",           default: 0
   end
 
 end

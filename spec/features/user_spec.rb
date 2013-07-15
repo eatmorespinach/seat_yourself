@@ -34,15 +34,15 @@ feature "User" do
 			click_link("Log in")
 			fill_in('Email', :with => @user_attributes[:email])
 			fill_in('Password', :with => @user_attributes[:password])
-			visit root_path
+			click_button('Log in')
 			click_link(@restaurant.name)
 			click_link('Create Booking')
-
 			fill_in('Date', :with => DateTime.new(2013,7,23,4,5,6))
 			fill_in('Party', :with => 20)
 						
 			click_button('Create Booking')
 			expect(page).to have_text("Booked!")
+
 		end
 
 		scenario "user can visit their profile page" do
