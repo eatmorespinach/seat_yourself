@@ -108,10 +108,10 @@ feature "Visitor" do
 			fill_in('Party', :with => 20) 
 			click_button('Create Booking')
 			expect(page).to have_text("Booked!")
-			ActionMailer::Base.deliveries.empty?.should be_false
-
-			open_email(@user.email)
-			current_email.should have_content "Hi"
+			mail = mock(Mail)
+			mail.should_receive(:deliver)
+			BookingMailer.should_receive(:booked_email).once.and_return(mail)
+			binding.pry
 		end
 
 	end
