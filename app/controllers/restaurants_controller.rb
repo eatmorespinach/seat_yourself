@@ -8,6 +8,9 @@ before_filter :load_user
   def show
   	@restaurant = Restaurant.find(params[:id])
 
+  	if @user.restaurant_id == @restaurant.id
+  		@bookings = Booking.find_by_restaurant_id(@restaurant.id)
+  	end
 
   end
 

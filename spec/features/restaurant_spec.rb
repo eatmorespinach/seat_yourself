@@ -24,9 +24,10 @@ describe 'Restuarant Owner' do
 		it 'view bookings' do
 
 			
-			binding.pry
-			
+			# binding.pry
+
 			click_link(@restaurant.name)
+			# binding.pry
 			page.should have_text('Bookings')
 			page.should have_text('Party Size')
 			page.should have_text('20')
