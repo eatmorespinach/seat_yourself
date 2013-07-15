@@ -5,6 +5,6 @@ class BookingMailer < ActionMailer::Base
   	@user = user
   	@url = 'http://google.com'
   	mail(to: @user.email, subject: "Welcome to My Awesome Site")
-  	binding.pry
+
 	end	
 end

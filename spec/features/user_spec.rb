@@ -74,19 +74,22 @@ feature "User" do
 		end
 
 		scenario "booking success email successfully sent" do
+			click_link("Log in")
+			fill_in('Email', :with => @user_attributes[:email])
+			fill_in('Password', :with => @user_attributes[:password])
+			click_button('Log in')
 			click_link(@restaurant.name)
 			click_link('Create Booking')
-			expect(page).to have_text("Bookings")
-			expect(page.has_selector?('form')).to be_true
-			
 			fill_in('Date', :with => DateTime.new(2013,7,23,4,5,6))
-			fill_in('Party', :with => 20) 
+			fill_in('Party', :with => 20)
+						
 			click_button('Create Booking')
-			expect(page).to have_text("Booked!")
+
 			mail = mock(Mail)
+			binding.pry
 			mail.should_receive(:deliver)
 			BookingMailer.should_receive(:booked_email).once.and_return(mail)
-			binding.pry
+
 		end
 	end
 
