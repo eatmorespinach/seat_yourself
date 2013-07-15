@@ -7,7 +7,7 @@ feature "Visitor" do
 		end
 		visit root_path
 		expect(page.has_selector?('table')).to be_true
-		expect(page.all('tr')).to have(3).items
+		expect(page.all('tr')).to have(6).items
 	end
 
 	scenario "Click on Restaurant" do
@@ -71,6 +71,12 @@ feature "Visitor" do
 		end
 
 		scenario "User can fill out booking form and submit" do
+			click_link("Log in")
+			expect(page.has_selector?('form')).to be_true
+
+			fill_in('Email', :with => @user_attributes[:email])
+			fill_in('Password', :with => @user_attributes[:password])
+
 
 			click_link(@restaurant.name)
 			click_link('Create Booking')
@@ -89,8 +95,24 @@ feature "Visitor" do
 			fill_in('Email', :with => @user_attributes[:email])
 			fill_in('Password', :with => @user_attributes[:password])
 			click_button('Log in')
-# binding.pry
 			click_link('Profile')
 		end
+
+		scenario "booking success email successfully sent" do
+			click_link(@restaurant.name)
+			click_link('Create Booking')
+			expect(page).to have_text("Bookings")
+			expect(page.has_selector?('form')).to be_true
+			
+			fill_in('Date', :with => DateTime.new(2013,7,23,4,5,6))
+			fill_in('Party', :with => 20) 
+			click_button('Create Booking')
+			expect(page).to have_text("Booked!")
+			ActionMailer::Base.deliveries.empty?.should be_false
+
+			open_email(@user.email)
+			current_email.should have_content "Hi"
+		end
+
 	end
 end

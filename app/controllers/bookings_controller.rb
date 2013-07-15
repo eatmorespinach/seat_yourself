@@ -10,6 +10,8 @@ class BookingsController < ApplicationController
 
     if @booking.save
       redirect_to restaurant_path(@restaurant.id), notice: 'Booked!'
+  
+      
     else
       render :new
     end
