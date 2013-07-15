@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 	before_action :load_restaurant
   before_filter :load_user
-  
+
   def new
   	@booking = Booking.new
   end
@@ -15,6 +15,8 @@ class BookingsController < ApplicationController
       @user.points += 1
       @user.save
       redirect_to restaurant_path(@restaurant.id), notice: 'Booked!'
+      BookingMailer.booked_email(@user).deliver
+      
     else
       render :new
     end
@@ -37,6 +39,5 @@ class BookingsController < ApplicationController
   def load_user
     @user = current_user
   end
-
 
 end
