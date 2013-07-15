@@ -22,10 +22,7 @@ describe 'Restuarant Owner' do
 
 	context 'click on restaurant profile' do
 		it 'view bookings' do
-
-			
 			# binding.pry
-
 			click_link(@restaurant.name)
 			# binding.pry
 			page.should have_text('Bookings')
