@@ -91,9 +91,9 @@ feature "Visitor" do
 			click_button('Log in')
 # binding.pry
 			click_link('Profile')
-			expect(page).to have_text('#{@user.name}')
-			expect(page).to have_text('#{@user.email}')
-			expect(page).to have_text('#{@user.points')
+			expect(page).to have_text(@user.name)
+			expect(page).to have_text(@user.email)
+			expect(page).to have_text(@user.points)
 		end
 	end
 end
