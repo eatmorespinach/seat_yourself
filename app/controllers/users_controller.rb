@@ -11,8 +11,6 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
 
   	if @user.save
-      BookingMailer.booked_email(@user).deliver
-  		binding.pry
       redirect_to root_url, :notice => "Signed Up!"
 
     else
