@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
 
   has_many :bookings
   has_many :restaurants, through: :bookings
-  belongs_to :restaurants
+  belongs_to :restaurant
   
 end
