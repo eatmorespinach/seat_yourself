@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-before_filter :load_user
+	before_filter :load_user
 
   def index
   	@restaurants = Restaurant.all
@@ -7,11 +7,10 @@ before_filter :load_user
 
   def show
   	@restaurant = Restaurant.find(params[:id])
-
-  	# if @user.restaurant_id == @restaurant.id
+# @user is nil if no user logged in.
+  	if @user.restaurant_id == @restaurant.id #
   	# 	@bookings = Booking.find_by_restaurant_id(@restaurant.id)
-  	# end
-
+  	end
   end
 
   private

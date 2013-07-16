@@ -4,22 +4,17 @@ feature "User" do
 
 	before(:each) do 
 		@restaurant = FactoryGirl.create(:restaurant)
-	
 		visit root_path
 		@user_attributes = FactoryGirl.attributes_for(:user)
 		@user = User.create(@user_attributes)
-		
 	end
 
 	context "when user logs in" do
 		scenario "User logs in" do
-
 			click_link("Log in")
 			expect(page.has_selector?('form')).to be_true
-
 			fill_in('Email', :with => @user_attributes[:email])
 			fill_in('Password', :with => @user_attributes[:password])
-
 			click_button('Log in')
 			expect(page).to have_text("Logged in!")
 		end
@@ -71,6 +66,8 @@ feature "User" do
 			visit root_path
 			click_link('Profile')
 			expect(page).to have_text('11')
+			expect(page).to have_text('20')
+			expect(page).to have_text('2013')
 		end
 
 		scenario "booking success email successfully sent" do
@@ -84,11 +81,6 @@ feature "User" do
 			fill_in('Party', :with => 20)
 						
 			click_button('Create Booking')
-
-			# mail = mock(Mail)
-
-			# mail.should_receive(:deliver)
-			# BookingMailer.should_receive(:booked_email).once.and_return(mail)
 
 		end
 	end

@@ -16,7 +16,6 @@ class BookingsController < ApplicationController
       @user.save
       redirect_to restaurant_path(@restaurant.id), notice: 'Booked!'
       BookingMailer.booked_email(@user).deliver
-      
     else
       render :new
     end

@@ -2,7 +2,7 @@
 	<% @restaurants.each do |x| %>
 		<tr>
 			<td>
-				<%= link_to x.name, restaurant_path(x[:id]) %>
+				<%= link_to x.name, restaurant_path(x.id) %>
 			</td>
 		</tr>
 	<%end%>

@@ -1,3 +1,9 @@
 <%= @user.name %>
 <%= @user.email %>
 <%= @user.points %>
+
+<% if @booking %>
+	<%= @booking.restaurant.name %>
+	<%= @booking.date %>
+	<%= @booking.party %>
+<% end %>
