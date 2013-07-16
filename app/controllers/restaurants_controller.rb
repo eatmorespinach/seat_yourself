@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
 # @user is nil if no user logged in.
 	# binding.pry
    	if @user && @user.restaurant_id == @restaurant.id #
-    		@bookings = Restaurant.find(@restaurant.id).bookings
+    	@bookings = Restaurant.find(@restaurant.id).bookings
    	end
 
   end

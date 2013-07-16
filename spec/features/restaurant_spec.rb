@@ -29,7 +29,23 @@ describe 'Restuarant Owner' do
 			page.should have_text('20')
 		end
 		it 'should display customers and their loyalty points' do
+			@user_attributes = FactoryGirl.attributes_for(:user)
+			@user_attributes[:points] = 1
+			@user_attributes[:restaurant_id] = 1
+			@user2 = User.create(@user_attributes)
+			visit root_path
+			click_link("Log Out")
+			click_link("Log in")
+			fill_in('Email', :with => @user_attributes[:email])
+			fill_in('Password', :with => @user_attributes[:password])
+			click_button('Log in')
 			click_link(@restaurant.name)
+
+			page.should have_text(@user2.email)
+			page.should have_text(@user.email)
+			page.should have_text(@user.points)
+			page.should have_text(@user2.points)
+
 		end
 			# @user = User.create(@user_attributes)
 	end
