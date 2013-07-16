@@ -28,5 +28,9 @@ describe 'Restuarant Owner' do
 			page.should have_text('Party Size')
 			page.should have_text('20')
 		end
+		it 'should display customers and their loyalty points' do
+			click_link(@restaurant.name)
+		end
+			# @user = User.create(@user_attributes)
 	end
 end

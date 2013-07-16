@@ -19,6 +19,17 @@ feature "User" do
 			expect(page).to have_text("Logged in!")
 		end
 
+
+		scenario 'user can log in and log out' do
+			click_link("Log in")
+			fill_in('Email', :with => @user_attributes[:email])
+			fill_in('Password', :with => @user_attributes[:password])
+			click_button('Log in')
+			visit root_path
+			click_link("Log Out")
+			expect(page).should have_text("Logged Out")
+		end
+
 		scenario "User can make a booking online" do
 			click_link("Log in")
 			expect(page.has_selector?('form')).to be_true
@@ -66,7 +77,6 @@ feature "User" do
 			click_link('Create Booking')
 			fill_in('Date', :with => DateTime.new(2013,7,23,4,5,6))
 			fill_in('Party', :with => 20)
-						
 			click_button('Create Booking')
 			visit root_path
 			click_link('Profile')
@@ -85,13 +95,8 @@ feature "User" do
 			click_link('Create Booking')
 			fill_in('Date', :with => DateTime.new(2013,7,23,4,5,6))
 			fill_in('Party', :with => 20)
-						
 			click_button('Create Booking')
-
 		end
+
 	end
-
-
-
-
 end
