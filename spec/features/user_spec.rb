@@ -70,6 +70,7 @@ feature "User" do
 			click_button('Create Booking')
 			visit root_path
 			click_link('Profile')
+			# binding.pry
 			expect(page).to have_text('11')
 			expect(page).to have_text('20')
 			expect(page).to have_text('2013')

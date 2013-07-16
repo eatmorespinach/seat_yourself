@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @booking = Booking.find_by_user_id(@user.id)
+    @booking = Booking.find_by_user_id(params[:id])
+    # binding.pry
   end
 
   def create

@@ -15,3 +15,12 @@
 </table>
 
 <%= link_to "Create Booking", "#{@restaurant.id}/bookings/new" %>
+
+<% if @bookings %>
+	Bookings
+	<% @bookings.each do |b| %>
+	Party Size
+		<%= b.party %>
+		<%= b.date %>
+	<% end %>
+<% end %>
