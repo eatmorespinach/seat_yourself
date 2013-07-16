@@ -27,7 +27,7 @@ feature "User" do
 			click_button('Log in')
 			visit root_path
 			click_link("Log Out")
-			expect(page).should have_text("Logged Out")
+			expect(page).to have_text("Logged Out")
 		end
 
 		scenario "User can make a booking online" do
@@ -36,7 +36,9 @@ feature "User" do
 			fill_in('Email', :with => @user_attributes[:email])
 			fill_in('Password', :with => @user_attributes[:password])
 			click_button('Log in')
+			# binding.pry
 			click_link(@restaurant.name)
+
 			click_link('Create Booking')
 		end
 
