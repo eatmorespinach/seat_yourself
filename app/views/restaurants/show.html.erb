@@ -24,3 +24,10 @@
 		<%= b.date %>
 	<% end %>
 <% end %>
+
+<% if @bookedUsers %>
+	<% @bookedUsers.each do |b| %>
+		<%= b.email %>
+		<%= b.points %>
+	<% end %>
+<% end %>

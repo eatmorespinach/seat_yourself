@@ -12,7 +12,9 @@ class RestaurantsController < ApplicationController
 	# binding.pry
    	if @user && @user.restaurant_id == @restaurant.id #
     	@bookings = Restaurant.find(@restaurant.id).bookings
-   	end
+      @bookedUsers = Booking.find_by_restaurant_id(@restaurant.id).user
+      
+    end
 
   end
 
