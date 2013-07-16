@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
       redirect_to restaurant_path(@restaurant.id), notice: 'Booked!'
       BookingMailer.booked_email(@user).deliver
     else
+      flash.now[:alert] = 'enter a booking btw 2 and 20'
       render :new
     end
   end

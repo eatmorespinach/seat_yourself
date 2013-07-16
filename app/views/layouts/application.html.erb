@@ -18,8 +18,12 @@
 
 	<% if flash[:notice] %>
 		<div class="alert alert-block">
-			<!-- <a class="close">x</a>			 -->
 			<p id='notice'><%= flash[:notice]%></p>		
+		</div>
+	<% end %>
+	<% if flash[:alert] %>
+		<div class="alert alert-block">
+			<p id='alert'><%= flash[:alert] %></p>
 		</div>
 	<% end %>
 	
