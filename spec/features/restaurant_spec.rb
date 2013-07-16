@@ -44,8 +44,8 @@ describe 'Restuarant Owner' do
 			page.should have_text(@user2.email)
 			page.should have_text(@user.email)
 			binding.pry
-			page.should have_text(@user.points)
-			page.should have_text(@user2.points)
+			page.should have_text(@user.points+1)
+			page.should have_text(@user2.points+1)
 
 		end
 			# @user = User.create(@user_attributes)
