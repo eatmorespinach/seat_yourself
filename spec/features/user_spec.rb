@@ -20,6 +20,11 @@ feature "User" do
 		end
 
 		scenario "User can make a booking online" do
+			click_link("Log in")
+			expect(page.has_selector?('form')).to be_true
+			fill_in('Email', :with => @user_attributes[:email])
+			fill_in('Password', :with => @user_attributes[:password])
+			click_button('Log in')
 			click_link(@restaurant.name)
 			click_link('Create Booking')
 		end

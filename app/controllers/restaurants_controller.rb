@@ -7,10 +7,13 @@ class RestaurantsController < ApplicationController
 
   def show
   	@restaurant = Restaurant.find(params[:id])
+
 # @user is nil if no user logged in.
-  	if @user.restaurant_id == @restaurant.id #
-  	# 	@bookings = Booking.find_by_restaurant_id(@restaurant.id)
-  	end
+	# binding.pry
+   	if @user && @user.restaurant_id == @restaurant.id #
+    		@booking = Booking.find_by_restaurant_id(@restaurant.id)
+   	end
+
   end
 
   private
@@ -20,7 +23,12 @@ class RestaurantsController < ApplicationController
   end
 
   def load_user
-  	@user = current_user
+  	#current_user is not passed in
+  	# if current_user.nil?
+  	# 	@user = 0
+  	# else
+  		@user = current_user
+  	# end
   end
 
 
